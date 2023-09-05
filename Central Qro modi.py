@@ -7,7 +7,7 @@ precios = { "Jalisco": 100, "Aguascalientes": 150, "Ciudad de México": 200, "Ch
 # Definir el precio total
 def calcular_precio(ubicacion_elegida, precios):
     if ubicacion_elegida in precios:
-        return precios[ubicacion_elegida] * 0.05
+        return precios[ubicacion_elegida] * 1.05
     else:
         return "Ubicación no válida"
 
@@ -18,7 +18,5 @@ for i, ubicacion in enumerate(ubicaciones_disponibles):
 
 opcion_ubicacion = int(input("Seleccione una ubicación (1-4): ")) - 1
 ubicacion_elegida = ubicaciones_disponibles[opcion_ubicacion]
-
 # Dar el precio
-print(f"El precio para ir a ", ubicacion_elegida,"es ", {precios} )
-
+print(f"El precio para ir a ", ubicacion_elegida,f"es : {calcular_precio(ubicacion_elegida, precios)}")
