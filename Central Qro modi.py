@@ -40,6 +40,37 @@ print(f"Día del viaje simple: {dia_viaje_simple}")
 if dia_viaje_regreso:
     print(f"Día del viaje de regreso: {dia_viaje_regreso}")
 
+# Crear una matriz de 6x5 con valores de 1 a 30
+asientos = []
+numero_asiento = 1
+for i in range(6):
+    fila = []
+    for j in range(5):
+        fila.append(numero_asiento)
+        numero_asiento += 1
+    asientos.append(fila)
+
+for fila in asientos:
+    print(fila)
+# Pedir al usuario que elija un asiento
+asiento_elegido = int(input("Elige un asiento del 1 al 30: "))
+# Verificar si el asiento está disponible 
+encontrado = False
+for i in range(len(asientos)):
+    if asiento_elegido in asientos[i]:
+        fila = i
+        columna = asientos[i].index(asiento_elegido)
+        asientos[fila][columna] = 'X'  # Marcar el asiento como ocupado
+        encontrado = True
+        break
+# Mostrar la matriz actualizada
+if encontrado:
+    print(f"Has elegido el asiento {asiento_elegido}.")
+    for fila in asientos:
+        print(fila)
+else:
+    print("Asiento no disponible. Por favor, elige otro asiento.")
+
 # Dar el precio
 print(f"El precio para ir a ", ubicacion_elegida,f"es : {calcular_precio(ubicacion_elegida, precios)}")
 
@@ -48,3 +79,13 @@ if dia_viaje_regreso:
     if tipo_de_viaje.lower() == "redondo":
         precio_total *= 2
     print(f"El precio total es: {precio_total}")
+
+
+
+
+
+
+
+
+
+
